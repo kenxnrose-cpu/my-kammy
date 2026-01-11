@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For my Kammy 💖</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Comic Sans MS', cursive;
+        background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        max-width: 420px;
+        animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+        color: #ff4d88;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .characters {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin: 25px 0;
+        position: relative;
+    }
+
+    .char {
+        width: 70px;
+        height: 70px;
+        background: #ffe0eb;
+        border-radius: 50%;
+        position: relative;
+        transition: transform 1s ease;
+        animation: bounce 2s infinite;
+    }
+
+    .char::before, .char::after {
+        content: "";
+        position: absolute;
+        background: #333;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        top: 25px;
+    }
+
+    .char::before { left: 20px; }
+    .char::after { right: 20px; }
+
+    .smile {
+        position: absolute;
+        width: 30px;
+        height: 15px;
+        border-bottom: 4px solid #333;
+        border-radius: 0 0 30px 30px;
+        bottom: 18px;
+        left: 20px;
+    }
+
+    .hug-left {
+        transform: translateX(35px);
+        animation: none;
+    }
+
+    .hug-right {
+        transform: translateX(-35px);
+        animation: none;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        position: relative;
+        height: 80px;
+    }
+
+    button {
+        background: #ff4d88;
+        color: white;
+        border: none;
+        padding: 12px 22px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s;
+        position: absolute;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    #yesBtn { left: 80px; }
+    #noBtn {
+        right: 80px;
+        background: #aaa;
+    }
+
+    #message {
+        display: none;
+        margin-top: 20px;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Hey my love </h1>
+
+    <p>
+        I wanted to tell you something honestly and from my heart.
+        You mean so much to me, and being with you feels special,
+        comforting, and real, however calling you mine would be better.
+    </p>
+
+    <div class="characters">
+        <div class="char" id="leftChar"><div class="smile"></div></div>
+        <div class="char" id="rightChar"><div class="smile"></div></div>
+    </div>
+
+    <h1>Can I be your girlfriend? 💕</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="yes()">Yes </button>
+        <button id="noBtn" onmouseover="moveNo()">No </button>
+    </div>
+
+    <div id="message">
+        <h1> Yay!! </h1>
+        <p>
+            I’m so glad you said yes.
+            I promise to care for you, support you,
+            and make you feel loved every day.
+        </p>
+    </div>
+</div>
+
+<script>
+function yes() {
+    document.getElementById("leftChar").classList.add("hug-left");
+    document.getElementById("rightChar").classList.add("hug-right");
+    document.getElementById("message").style.display = "block";
+}
+
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * 250 + "px";
+    btn.style.top = Math.random() * 40 + "px";
+}
+</script>
+
+</body>
+</html>
